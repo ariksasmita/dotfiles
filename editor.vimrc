@@ -8,8 +8,8 @@ set background=dark
 if (has("termguicolors"))
  set termguicolors
 endif
-" colorscheme PaperColor 
-colorscheme night-owl
+colorscheme PaperColor 
+" colorscheme night-owl
 
 " ## Syntax highlighting
 syntax on

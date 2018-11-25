@@ -66,7 +66,11 @@ nnoremap <Leader>n :nohlsearch<cr>
 " Close all but current buffer
 nnoremap <C-F1> :%bd\|e#<CR>
 " Deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" use tab to forward cycle
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" use tab to backward cycle
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 " Tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 " Grepper strinh search using ag
