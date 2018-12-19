@@ -50,6 +50,9 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+" Escape Terminal Mode
+:tnoremap <Esc> <C-\><C-n>
+
 
 " ## PLUGIN RELATED MAPS
 " -------------------------------------------

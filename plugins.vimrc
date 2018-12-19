@@ -1,9 +1,10 @@
-" Plugins init
+﻿" Plugins init
 
 " ## VIMPLUG
 " -------------------------------
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
+
 
 " File Tree explorer
 Plug 'scrooloose/nerdtree'
@@ -40,8 +41,8 @@ Plug 'w0rp/ale'
 Plug 'posva/vim-vue'
 
 " # AUTOCOMPLETION STUFF
+Plug 'metalelf0/supertab'
 Plug 'Shougo/deoplete.nvim'
-Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }

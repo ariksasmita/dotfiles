@@ -68,7 +68,7 @@ set splitbelow
 set splitright
 
 " Setup folding
-" set foldmethod=indent
+" set foldmethod=syntax
 " set foldnestmax=10
 " set nofoldenable
 " set foldlevel=2
