@@ -2,7 +2,7 @@
 
 
 " python3 plugins
-call remote#host#RegisterPlugin('python3', 'C:/Users/arik.sasmita/.vim/plugged/deoplete.nvim/rplugin/python3/deoplete', [
+call remote#host#RegisterPlugin('python3', 'C:/Users/IBM/.vim/plugged/deoplete.nvim/rplugin/python3/deoplete', [
       \ {'sync': v:false, 'name': '_deoplete_init', 'type': 'function', 'opts': {}},
      \ ])
 
