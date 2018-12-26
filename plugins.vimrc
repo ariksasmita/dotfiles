@@ -199,3 +199,8 @@ let g:ale_fixers = {
 set updatetime=100
 let g:ale_lint_on_text_changed='always'
 let g:ale_lint_delay=200
+
+" ## VIM-BUFTABLINE
+" show 'modified' indicator
+let g:buftabline_indicators=1
+let g:buftabline_numbers=1
