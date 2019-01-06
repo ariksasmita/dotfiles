@@ -61,6 +61,12 @@ Plug 'epilande/vim-react-snippets'
 Plug 'tpope/vim-fugitive'
 " Vim GitGutter
 Plug 'airblade/vim-gitgutter'
+" Enable Fullscreen
+Plug 'lambdalisue/vim-fullscreen'
+
+" # Miscellaneous
+" Markdown Preview
+Plug 'iamcco/markdown-preview.nvim'
 
 " # THEME
 " Papercolor theme
