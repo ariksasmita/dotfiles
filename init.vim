@@ -1,5 +1,5 @@
-source D:\PROGRAMFILES\Neovim\nvim-config\env.vimrc
-source D:\PROGRAMFILES\Neovim\nvim-config\plugins.vimrc
-source D:\PROGRAMFILES\Neovim\nvim-config\editor.vimrc
-source D:\PROGRAMFILES\Neovim\nvim-config\keys.vimrc
-source D:\PROGRAMFILES\Neovim\nvim-config\statusline.vimrc
+source ~/Documents/configs/dotfiles/env.vimrc
+source ~/Documents/configs/dotfiles/plugins.vimrc
+source ~/Documents/configs/dotfiles/editor.vimrc
+source ~/Documents/configs/dotfiles/keys.vimrc
+source ~/Documents/configs/dotfiles/statusline.vimrc
