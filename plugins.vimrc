@@ -25,7 +25,8 @@ Plug 'xolox/vim-session'
 " Misc. cim scripts (required for vim-session)
 Plug 'xolox/vim-misc'
 " Silver Search for nvim
-Plug 'epmatsw/ag.vim'
+Plug 'numkil/ag.nvim'
+" Plug 'epmatsw/ag.vim'
 " Another alternative tht uses Silver Searcher
 Plug 'mhinz/vim-grepper'
 " --- Still need to setup
@@ -197,9 +198,28 @@ let g:session_autoload = 'no'
 let g:session_autosave = 'no'
 
 " ## ALE (eslint-er)
+let g:ale_linter_aliases = {'vue': 'typescript'}
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'vue': ['eslint']
+\}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
+\   'vue': ['eslint'],
 \}
+" ALE function for statusline
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
 
 " set update time showing Git changes faster"
 set updatetime=100
@@ -210,3 +230,8 @@ let g:ale_lint_delay=200
 " show 'modified' indicator
 let g:buftabline_indicators=1
 let g:buftabline_numbers=1
+
+" ## VIM-FUGITIVE
+" Split Issue fix (GStatus goes to the left instead of bottom; Should be
+" bottom
+set diffopt+=vertical
