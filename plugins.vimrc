@@ -25,12 +25,12 @@ Plug 'xolox/vim-session'
 " Misc. cim scripts (required for vim-session)
 Plug 'xolox/vim-misc'
 " Silver Search for nvim
-Plug 'numkil/ag.nvim'
+" Plug 'numkil/ag.nvim'
 " Plug 'epmatsw/ag.vim'
 " Another alternative tht uses Silver Searcher
 Plug 'mhinz/vim-grepper'
-" --- Still need to setup
-" Plug 'numkil/ag.nvim'
+" ACK Vim
+Plug 'mileszs/ack.vim'
 
 " # Indentations
 Plug 'Yggdroot/indentLine'
@@ -79,6 +79,11 @@ Plug 'haishanh/night-owl.vim'
 " Initialize plugin system
 call plug#end()
 
+" ## ACK VIM
+if executable('ag')
+" let g:ackprg = 'ag --vimgrep --nogroup --nocolor --column'
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
 
 " ## BUILT-IN PLUGIN LIKE FEATURES
 " -------------------------------
@@ -174,7 +179,7 @@ let g:deoplete#sources = {}
 let g:deoplete#sources.javascript = ['file', 'ternjs']
 let g:deoplete#sources.jsx = ['file', 'ultisnips', 'ternjs']
 let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
+let g:tern#arguments = ["--persistent", "--no-port-file"]
 
 " Config SuperTab plugin everything
 autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"

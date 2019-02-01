@@ -67,7 +67,7 @@ nnoremap <Leader>h cit<CR><CR><ESC>k<S-a><TAB>
 " For above config, when we press Enter, remove all highlights
 nnoremap <Leader>n :nohlsearch<cr>
 " Close all but current buffer
-nnoremap <C-F1> :%bd\|e#<CR>
+nnoremap <Leader>cx :%bd\|e#<CR>
 " Deoplete tab-complete
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to forward cycle
@@ -79,3 +79,5 @@ autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 " Grepper strinh search using ag
 nnoremap <Leader>fp :Grepper<Space>-query<Space>
 nnoremap <Leader>fb :Grepper<Space>-buffers<Space>-query<Space>-<Space>
+" Find current buffer in NERDTree
+nnoremap <Leader>s :NERDTreeFind<cr>
