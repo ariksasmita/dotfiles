@@ -80,10 +80,10 @@ Plug 'haishanh/night-owl.vim'
 call plug#end()
 
 " ## ACK VIM
-if executable('ag')
+" if executable('ag')
 " let g:ackprg = 'ag --vimgrep --nogroup --nocolor --column'
-  let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
+"   let g:ackprg = 'ag --nogroup --nocolor --column'
+" endif
 
 " ## BUILT-IN PLUGIN LIKE FEATURES
 " -------------------------------
