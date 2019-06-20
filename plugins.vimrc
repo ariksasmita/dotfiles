@@ -31,6 +31,8 @@ Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-grepper'
 " ACK Vim
 Plug 'mileszs/ack.vim'
+" Change to project's directory on file open
+Plug 'airblade/vim-rooter'
 
 " # Indentations
 Plug 'Yggdroot/indentLine'
@@ -174,7 +176,9 @@ let g:deoplete#sources#ternjs#filetypes = [
   \ ]
 
 " Use tern_for_vim.
-set completeopt=longest,menuone,preview
+" Use the popup menu by default; only insert the longest common text of the completion matches; don't automatically show extra information in the preview window.
+set completeopt=menu,longest
+" set completeopt=longest,menuone,preview
 let g:deoplete#sources = {}
 let g:deoplete#sources.javascript = ['file', 'ternjs']
 let g:deoplete#sources.jsx = ['file', 'ultisnips', 'ternjs']
@@ -194,7 +198,8 @@ let g:UltiSnipsExpandTrigger="<C-k>"
 " It's pretty useful, but impacts performance quite drastically. Disable it by
 " default, and toggle it using :IndentLinesToggle
 let g:indentLine_enabled = 0
-let g:indentLine_char = "⟩"
+" let g:indentLine_char = "⟩"
+let g:indentLine_char = "|"
 
 " ## VIM-SESSION
 " disable session autoload

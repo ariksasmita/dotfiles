@@ -53,6 +53,10 @@ imap <right> <nop>
 " Escape Terminal Mode
 :tnoremap <Esc> <C-\><C-n>
 
+" Wrap lines in /*...*/ lines
+vnoremap <Leader>c c/*<CR>*/<Esc>kp
+nnoremap <Leader>/ <S-i>//<Space><Esc>
+
 
 " ## PLUGIN RELATED MAPS
 " -------------------------------------------
