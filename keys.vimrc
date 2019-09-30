@@ -53,10 +53,13 @@ imap <right> <nop>
 " Escape Terminal Mode
 :tnoremap <Esc> <C-\><C-n>
 
+" ## Code Convinience
+" -------------------------------------------
 " Wrap lines in /*...*/ lines
-vnoremap <Leader>c c/*<CR>*/<Esc>kp
+vnoremap <Leader>c "ec/*<CR>*/<Esc>k"ep
 nnoremap <Leader>/ <S-i>//<Space><Esc>
-
+"  Comment HTML/Template
+nnoremap <Leader>hc ^"eC<!-- <Esc>"epa --><Esc>
 
 " ## PLUGIN RELATED MAPS
 " -------------------------------------------
@@ -73,7 +76,7 @@ nnoremap <Leader>n :nohlsearch<cr>
 " Close all but current buffer
 nnoremap <Leader>cx :%bd\|e#<CR>
 " Deoplete tab-complete
-" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to forward cycle
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to backward cycle

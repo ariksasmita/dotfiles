@@ -43,6 +43,9 @@ Plug 'mxw/vim-jsx'
 Plug 'w0rp/ale'
 Plug 'posva/vim-vue'
 
+" # PHP Blade Template Engine Syntax Support
+Plug 'jwalton512/vim-blade'
+
 " # AUTOCOMPLETION STUFF
 Plug 'metalelf0/supertab'
 if has('nvim')
@@ -62,10 +65,17 @@ Plug 'epilande/vim-react-snippets'
 " # GIT SUPPORTS
 " Vim Fugitive
 Plug 'tpope/vim-fugitive'
+" Vim Fugitive helper for commits and conflict resolver
+Plug 'idanarye/vim-merginal'
 " Vim GitGutter
 Plug 'airblade/vim-gitgutter'
 " Enable Fullscreen
 Plug 'lambdalisue/vim-fullscreen'
+
+" # PLANT UML PREVIEW
+Plug 'scrooloose/vim-slumlord'
+" # PLANT UML SYNTAX
+Plug 'aklt/plantuml-syntax'
 
 " # Miscellaneous
 " Markdown Preview
@@ -76,7 +86,14 @@ Plug 'iamcco/markdown-preview.nvim'
 Plug 'NLKNguyen/papercolor-theme'
 " Night Owl
 Plug 'haishanh/night-owl.vim'
-
+" Dark Purple
+Plug 'shapeoflambda/dark-purple.vim'
+" Ayu
+Plug 'ayu-theme/ayu-vim'
+" One Half
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+" Tequila Sunrise
+Plug 'levelone/tequila-sunrise.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -203,9 +220,13 @@ let g:indentLine_char = "|"
 
 " ## VIM-SESSION
 " disable session autoload
-let g:session_autoload = 'no'
+let g:session_autoload = 'yes'
 " disable session autosave
-let g:session_autosave = 'no'
+let g:session_autosave = 'yes'
+" autosave for some interval of time (minutes)
+let g:session_autosave_periodic = 5
+" silence autosave dialog
+let g:session_autosave_silent = 1
 
 " ## ALE (eslint-er)
 let g:ale_linter_aliases = {'vue': 'typescript'}

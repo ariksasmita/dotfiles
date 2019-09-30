@@ -2,18 +2,28 @@
 " Adds behavior for Windows OS
 source $VIMRUNTIME/mswin.vim
 
+" ## Declare terminal has 256 colors
+" set t_Co=256
+
 " ## Colorscheme
 " Set background scheme
 set background=dark
 if (has("termguicolors"))
  set termguicolors
 endif
-colorscheme PaperColor 
-" colorscheme night-owl
 
 " ## Syntax highlighting
 syntax on
 filetype plugin on
+
+" colorscheme PaperColor
+" colorscheme night-owl
+colorscheme tequila-sunrise
+" colorscheme onehalfdark
+" if (has("termguicolors"))
+"  let ayucolor="dark"
+"  colorscheme ayu
+" endif
 
 " ## Script encoding
 scriptencoding utf-8
@@ -21,6 +31,7 @@ scriptencoding utf-8
 " ## Editor configs
 set shiftwidth=2
 set autoindent
+set autoread
 set smartindent
 set cindent
 set expandtab
@@ -43,6 +54,10 @@ set expandtab
 
 " Increase (?) undo levels
 set undolevels=100
+
+" set persistent Undo
+set undodir=~/.vim/undodir
+set undofile
 
 " Use system's clipboard
 set clipboard=unnamed
