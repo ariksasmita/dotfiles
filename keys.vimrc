@@ -60,6 +60,8 @@ vnoremap <Leader>c "ec/*<CR>*/<Esc>k"ep
 nnoremap <Leader>/ <S-i>//<Space><Esc>
 "  Comment HTML/Template
 nnoremap <Leader>hc ^"eC<!-- <Esc>"epa --><Esc>
+" Resync syntax highlights
+nnoremap <Leader>r :syntax sync fromstart<CR>
 
 " ## PLUGIN RELATED MAPS
 " -------------------------------------------

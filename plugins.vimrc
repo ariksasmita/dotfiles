@@ -43,6 +43,9 @@ Plug 'mxw/vim-jsx'
 Plug 'w0rp/ale'
 Plug 'posva/vim-vue'
 
+" # TypeScript syntax support
+Plug 'leafgarland/typescript-vim'
+
 " # PHP Blade Template Engine Syntax Support
 Plug 'jwalton512/vim-blade'
 
@@ -61,6 +64,7 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'epilande/vim-react-snippets'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " # GIT SUPPORTS
 " Vim Fugitive
@@ -227,6 +231,8 @@ let g:session_autosave = 'yes'
 let g:session_autosave_periodic = 5
 " silence autosave dialog
 let g:session_autosave_silent = 1
+" commang aliases
+let g:session_command_aliases = 1
 
 " ## ALE (eslint-er)
 let g:ale_linter_aliases = {'vue': 'typescript'}

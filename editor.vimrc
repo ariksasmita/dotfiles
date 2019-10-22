@@ -18,12 +18,12 @@ filetype plugin on
 
 " colorscheme PaperColor
 " colorscheme night-owl
-colorscheme tequila-sunrise
+" colorscheme tequila-sunrise
 " colorscheme onehalfdark
-" if (has("termguicolors"))
-"  let ayucolor="dark"
-"  colorscheme ayu
-" endif
+if (has("termguicolors"))
+ let ayucolor="dark"
+ colorscheme ayu
+endif
 
 " ## Script encoding
 scriptencoding utf-8
@@ -84,7 +84,7 @@ set splitright
 
 " Setup folding
 " set foldmethod=syntax
-set foldmethod=indent
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2
+" set foldmethod=indent
+" set foldnestmax=10
+" set nofoldenable
+" set foldlevel=2
