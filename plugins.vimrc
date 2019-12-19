@@ -42,7 +42,30 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'w0rp/ale'
 Plug 'posva/vim-vue'
+" Plug 'evanleck/vim-svelte'
+Plug 'leafoftree/vim-svelte-plugin'
 
+" Prettier
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'branch': 'release/1.x',
+  \ 'for': [
+    \ 'javascript',
+    \ 'typescript',
+    \ 'css',
+    \ 'less',
+    \ 'scss',
+    \ 'json',
+    \ 'graphql',
+    \ 'markdown',
+    \ 'vue',
+    \ 'lua',
+    \ 'php',
+    \ 'python',
+    \ 'ruby',
+    \ 'html',
+    \ 'swift' ] }
+"
 " # TypeScript syntax support
 Plug 'leafgarland/typescript-vim'
 
@@ -53,6 +76,7 @@ Plug 'jwalton512/vim-blade'
 Plug 'metalelf0/supertab'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/context_filetype.vim'
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
@@ -65,12 +89,14 @@ Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'epilande/vim-react-snippets'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Emmet
+Plug 'mattn/emmet-vim'
 
-" # GIT SUPPORTS
+" " # GIT SUPPORTS
 " Vim Fugitive
 Plug 'tpope/vim-fugitive'
 " Vim Fugitive helper for commits and conflict resolver
-Plug 'idanarye/vim-merginal'
+" Plug 'idanarye/vim-merginal'
 " Vim GitGutter
 Plug 'airblade/vim-gitgutter'
 " Enable Fullscreen
@@ -98,6 +124,10 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 " Tequila Sunrise
 Plug 'levelone/tequila-sunrise.vim'
+" Panic!
+" Plug 'jdsimcoe/panic.vim'
+" My fork with few adjustments
+Plug 'ariksasmita/panic.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -136,7 +166,7 @@ set wildignore+=*/node_modules/*
 " autocmd vimenter * NERDTree %:p:h<CR>
 
 " Set default size of the plugin
-let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize=30
 
 
 " ## CTRLP
@@ -156,8 +186,8 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/node_
 " * https://www.gregjs.com/vim/2016/configuring-the-deoplete-asynchronous-keyword-completion-plugin-with-tern-for-vim/
 " * https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
 "
-" Deoplete needed python executable to be defined
-let g:deoplete#enable_at_startup = 1
+" Deoplete needed python executable to be defined (beok value originaly 1)
+let g:deoplete#enable_at_startup = 0
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
   let g:deoplete#omni#input_patterns.javascript = '[^. *\t]\.\w*'
@@ -174,6 +204,7 @@ augroup omnifuncs
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
+
 " tern
 if exists('g:plugs["tern_for_vim"]')
   let g:tern_show_argument_hints = 'on_hold'
@@ -193,16 +224,24 @@ let g:deoplete#sources#ternjs#filetypes = [
   \ 'jsx',
   \ 'javascript.jsx',
   \ 'vue',
+  \ 'svelte',
   \ 'javascript'
   \ ]
+
+" Deoplete Svelte Stuff (https://blog.ffff.lt/posts/vim-and-svelte/)
+call deoplete#custom#var('omni', 'functions', {
+\ 'css': ['csscomplete#CompleteCSS']
+\})
 
 " Use tern_for_vim.
 " Use the popup menu by default; only insert the longest common text of the completion matches; don't automatically show extra information in the preview window.
 set completeopt=menu,longest
 " set completeopt=longest,menuone,preview
 let g:deoplete#sources = {}
-let g:deoplete#sources.javascript = ['file', 'ternjs']
+let g:deoplete#sources.javascript = ['file', 'ultisnips', 'ternjs']
 let g:deoplete#sources.jsx = ['file', 'ultisnips', 'ternjs']
+let g:deoplete#sources.vue = ['file', 'ultisnips', 'ternjs']
+let g:deoplete#sources.svelte = ['file', 'ultisnips', 'ternjs']
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent", "--no-port-file"]
 
@@ -235,14 +274,19 @@ let g:session_autosave_silent = 1
 let g:session_command_aliases = 1
 
 " ## ALE (eslint-er)
-let g:ale_linter_aliases = {'vue': 'typescript'}
+let g:ale_linter_aliases = {
+\  'vue': 'typescript',
+\  'svelte': ['css', 'javascript']
+\}
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'vue': ['eslint']
+\   'vue': ['eslint'],
+\   'svelte': ['stylelint', 'eslint']
 \}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'vue': ['eslint'],
+\   'svelte': ['prettier', 'eslint'],
 \}
 " ALE function for statusline
 function! LinterStatus() abort
@@ -258,6 +302,17 @@ function! LinterStatus() abort
     \)
 endfunction
 
+" Filetype Context (for Svelte and other script that got sections of script
+" and style)
+if !exists('g:context_filetype#same_filetypes')
+    let g:context_filetype#filetypes = {}
+endif
+let g:context_filetype#filetypes.svelte =
+   \ [
+   \    {'filetype' : 'javascript', 'start' : '<script>', 'end' : '</script>'},
+   \    {'filetype' : 'css', 'start' : '<style>', 'end' : '</style>'},
+   \ ]
+
 " set update time showing Git changes faster"
 set updatetime=100
 let g:ale_lint_on_text_changed='always'
@@ -272,3 +327,13 @@ let g:buftabline_numbers=1
 " Split Issue fix (GStatus goes to the left instead of bottom; Should be
 " bottom
 set diffopt+=vertical
+
+" TERN JS AUTOCOMPLETION AUTOSTART
+let g:tern#command = ['tern', '--no-port-file --persistent']
+
+" EMMET
+" Remap key
+let g:user_emmet_leader_key='<C-B>'
+
+" VIM-SVELTE-PLUGIN
+let g:vim_svelte_plugin_load_full_syntax = 1

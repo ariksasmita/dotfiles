@@ -1,4 +1,5 @@
-Guifont! Fira Code:h10
+Guifont! Monoid:h10
+" Guifont! Fira Code:h10
 GuiLinespace 4
 " call rpcnotify(0, 'Gui', 'WindowMaximized', 1)
 " Userfull src: https://github.com/equalsraf/neovim-qt/blob/master/src/gui/runtime/plugin/nvim_gui_shim.vim

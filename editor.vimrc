@@ -15,14 +15,17 @@ endif
 " ## Syntax highlighting
 syntax on
 filetype plugin on
+" au BufNewFile,BufRead *.axml set filetype=xml
+" au BufNewFile,BufRead *.acss set filetype=css
 
 " colorscheme PaperColor
 " colorscheme night-owl
 " colorscheme tequila-sunrise
 " colorscheme onehalfdark
 if (has("termguicolors"))
- let ayucolor="dark"
- colorscheme ayu
+ " let ayucolor="dark"
+ " colorscheme ayu
+ colorscheme panic
 endif
 
 " ## Script encoding
