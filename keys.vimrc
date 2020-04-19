@@ -37,6 +37,10 @@ nnoremap tt <C-^>
 " Cycle through open buffers
 noremap <Tab> :bnext!<CR>
 noremap <S-Tab> :bprev!<CR>
+:autocmd FileType nerdtree noremap <buffer> <Tab> <c-w><c-w>
+" Disable above on NERDTree buffers
+:autocmd FileType nerdtree noremap <buffer> <Tab> <nop>
+:autocmd FileType nerdtree noremap <buffer> <S-Tab> <nop>
 
 " EXTREME: Arrow keys to resize panel,
 " AND also disable arrow keys in Insert mode
@@ -85,8 +89,23 @@ inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 " Tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
-" Grepper strinh search using ag
+" Grepper string search using ag
 nnoremap <Leader>fp :Grepper<Space>-query<Space>
 nnoremap <Leader>fb :Grepper<Space>-buffers<Space>-query<Space>-<Space>
 " Find current buffer in NERDTree
 nnoremap <Leader>s :NERDTreeFind<cr>
+
+" FUGITIVE
+" Gstatus
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gvs :vertical Gstatus<CR>
+" MERGINAL
+" Toggle Merginal Panel
+nnoremap <Leader>m :MerginalToggle<CR>
+
+" SNIPPETS
+"You can use <c-j> to goto the next <++> - it is pretty smart.
+autocmd BufRead,BufNewFile *.vue inorea <buffer> vue <c-r>=IMAP_PutTextWithMovement('<template>\n<++>\n</templtate>\n\n<script>\n<++>\n</script>\n\n<style lang="<++>">\n<++></style>')<CR>
+
+"Press c-q insted of space (or other key) to complete the snippet
+imap <C-q> <C-]>

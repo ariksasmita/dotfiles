@@ -33,6 +33,8 @@ Plug 'mhinz/vim-grepper'
 Plug 'mileszs/ack.vim'
 " Change to project's directory on file open
 Plug 'airblade/vim-rooter'
+" Prevent Loosing split when closing buffers
+Plug 'qpkorr/vim-bufkill'
 
 " # Indentations
 Plug 'Yggdroot/indentLine'
@@ -42,7 +44,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'w0rp/ale'
 Plug 'posva/vim-vue'
-" Plug 'evanleck/vim-svelte'
 Plug 'leafoftree/vim-svelte-plugin'
 
 " Prettier
@@ -72,8 +73,11 @@ Plug 'leafgarland/typescript-vim'
 " # PHP Blade Template Engine Syntax Support
 Plug 'jwalton512/vim-blade'
 
+" # Better Markdown Hihglight
+Plug 'gabrielelana/vim-markdown'
+
 " # AUTOCOMPLETION STUFF
-Plug 'metalelf0/supertab'
+" Plug 'metalelf0/supertab'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/context_filetype.vim'
@@ -89,6 +93,7 @@ Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'epilande/vim-react-snippets'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Emmet
 Plug 'mattn/emmet-vim'
 
@@ -96,7 +101,7 @@ Plug 'mattn/emmet-vim'
 " Vim Fugitive
 Plug 'tpope/vim-fugitive'
 " Vim Fugitive helper for commits and conflict resolver
-" Plug 'idanarye/vim-merginal'
+Plug 'idanarye/vim-merginal'
 " Vim GitGutter
 Plug 'airblade/vim-gitgutter'
 " Enable Fullscreen
@@ -167,6 +172,7 @@ set wildignore+=*/node_modules/*
 
 " Set default size of the plugin
 let g:NERDTreeWinSize=30
+let NERDTreeIgnore = ['^node_modules$[[dir]]']
 
 
 " ## CTRLP
@@ -187,7 +193,7 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/node_
 " * https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
 "
 " Deoplete needed python executable to be defined (beok value originaly 1)
-let g:deoplete#enable_at_startup = 0
+let g:deoplete#enable_at_startup = 1
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
   let g:deoplete#omni#input_patterns.javascript = '[^. *\t]\.\w*'
@@ -245,10 +251,14 @@ let g:deoplete#sources.svelte = ['file', 'ultisnips', 'ternjs']
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent", "--no-port-file"]
 
+" Whether to use a case-insensitive compare between the current word and 
+" potential completions. Default 0
+let g:deoplete#sources#ternjs#case_insensitive = 1
+
 " Config SuperTab plugin everything
-autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+" autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " close the preview window when you're not using it
-let g:SuperTabClosePreviewOnPopupClose = 1
+" let g:SuperTabClosePreviewOnPopupClose = 1
 " change UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger="<C-k>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -275,7 +285,7 @@ let g:session_command_aliases = 1
 
 " ## ALE (eslint-er)
 let g:ale_linter_aliases = {
-\  'vue': 'typescript',
+\  'vue': ['javascript', 'css', 'html'],
 \  'svelte': ['css', 'javascript']
 \}
 let g:ale_linters = {
@@ -284,9 +294,10 @@ let g:ale_linters = {
 \   'svelte': ['stylelint', 'eslint']
 \}
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\   'vue': ['eslint'],
+\   'javascript': ['prettier', 'eslint'],
+\   'vue': ['prettier', 'eslint'],
 \   'svelte': ['prettier', 'eslint'],
+\   'scss':['prettier', 'stylelint'],
 \}
 " ALE function for statusline
 function! LinterStatus() abort
@@ -312,11 +323,25 @@ let g:context_filetype#filetypes.svelte =
    \    {'filetype' : 'javascript', 'start' : '<script>', 'end' : '</script>'},
    \    {'filetype' : 'css', 'start' : '<style>', 'end' : '</style>'},
    \ ]
+let g:context_filetype#filetypes.vue =
+   \ [
+   \    {'filetype' : 'javascript', 'start' : '<script>', 'end' : '</script>'},
+   \    {'filetype' : 'scss', 'start' : '<style>', 'end' : '</style>'},
+   \    {'filetype' : 'css', 'start' : '<style>', 'end' : '</style>'},
+   \    {'filetype' : 'less', 'start' : '<style>', 'end' : '</style>'},
+   \ ]
 
 " set update time showing Git changes faster"
 set updatetime=100
 let g:ale_lint_on_text_changed='always'
 let g:ale_lint_delay=200
+
+" signs
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+
+" fix on save
+" let g:ale_fix_on_save = 1
 
 " ## VIM-BUFTABLINE
 " show 'modified' indicator
@@ -329,7 +354,8 @@ let g:buftabline_numbers=1
 set diffopt+=vertical
 
 " TERN JS AUTOCOMPLETION AUTOSTART
-let g:tern#command = ['tern', '--no-port-file --persistent']
+let g:tern#command = ['tern']
+let g:tern#arguments = ["--no-port-file --persistent"]
 
 " EMMET
 " Remap key
