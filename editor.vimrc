@@ -12,6 +12,15 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
+set guifont=Fira\ Code:h10
+" set guifont=Monoid:h10
+"
+" set colorcolumn=100
+" highlight ColorColumn ctermbg=0 guibg=
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%101v.\+/
+" match ErrorMsg '\%>100v.\+'
+
 " ## Syntax highlighting
 syntax on
 filetype plugin on

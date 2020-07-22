@@ -5,6 +5,10 @@
 " Map Leader key to SPACE
 let mapleader="\<SPACE>"
 
+imap <S-CR> <Esc>
+imap ;; <Esc>
+noremap ;; <Esc>
+
 " Switch between split
 noremap <Leader>w <c-w><c-w>
 
@@ -81,6 +85,8 @@ nnoremap <Leader>h cit<CR><CR><ESC>k<S-a><TAB>
 nnoremap <Leader>n :nohlsearch<cr>
 " Close all but current buffer
 nnoremap <Leader>cx :%bd\|e#<CR>
+" Close current but don't disrupt split (qpkorr/vim-bufkill)
+nnoremap <Leader>
 " Deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to forward cycle

@@ -7,6 +7,7 @@ cabbrev ssass Ack! --sass
 cabbrev sscss Ack! --css
 cabbrev sweb Ack! --web
 cabbrev sphp Ack! --php
+cabbrev svjs Ack! --js --vue
 
 " GIT fugitive
 cabbrev gps Git push
@@ -15,3 +16,7 @@ cabbrev gpl Git pull
 
 " ALE Fixers
 cabbrev afx ALEFix
+
+" Session Manager
+cabbrev ops OpenSession!
+cabbrev svs SaveSession
