@@ -16,7 +16,6 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 " Match HTML Tag anywhere in file
 Plug 'valloric/MatchTagAlways'
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } Sublime Text like Fuzzy search
 Plug 'ctrlpvim/ctrlp.vim'
 " Editor Config file support
 Plug 'editorconfig/editorconfig-vim'
@@ -24,9 +23,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'xolox/vim-session'
 " Misc. cim scripts (required for vim-session)
 Plug 'xolox/vim-misc'
-" Silver Search for nvim
-" Plug 'numkil/ag.nvim'
-" Plug 'epmatsw/ag.vim'
 " Another alternative tht uses Silver Searcher
 Plug 'mhinz/vim-grepper'
 " ACK Vim
@@ -92,7 +88,7 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 " Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'epilande/vim-react-snippets'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Emmet
 Plug 'mattn/emmet-vim'
@@ -187,84 +183,6 @@ if exists("g:ctrlp_user_command")
 endif
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/node_modules/*
 
-
-" ## DEOPLETE
-" -------------------------------
-" Based on config from this kind gentleman:
-" * https://www.gregjs.com/vim/2016/configuring-the-deoplete-asynchronous-keyword-completion-plugin-with-tern-for-vim/
-" * https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
-"
-" Deoplete needed python executable to be defined (beok value originaly 1)
-" let g:deoplete#enable_at_startup = 1
-" if !exists('g:deoplete#omni#input_patterns')
-"   let g:deoplete#omni#input_patterns = {}
-"   let g:deoplete#omni#input_patterns.javascript = '[^. *\t]\.\w*'
-" endif
-" " let g:deoplete#disable_auto_complete = 1
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" omnifuncs
-" augroup omnifuncs
-"   autocmd!
-"   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" augroup end
-
-" tern
-" if exists('g:plugs["tern_for_vim"]')
-"   let g:tern_show_argument_hints = 'on_hold'
-"   let g:tern_show_signature_in_pum = 1
-"   autocmd FileType javascript setlocal omnifunc=tern#Complete
-" endif
-
-" Make Deoplete play nice with multiple third-party plugins
-" let g:deoplete#omni#functions = {}
-" let g:deoplete#omni#functions.javascript = [
-"   \ 'tern#Complete',
-"   \ 'jspc#omni'
-" \]
-
-"Add extra filetypes
-" let g:deoplete#sources#ternjs#filetypes = [
-"   \ 'jsx',
-"   \ 'javascript.jsx',
-"   \ 'vue',
-"   \ 'svelte',
-"   \ 'javascript'
-"   \ ]
-
-" Deoplete Svelte Stuff (https://blog.ffff.lt/posts/vim-and-svelte/)
-" call deoplete#custom#var('omni', 'functions', {
-" \ 'css': ['csscomplete#CompleteCSS']
-" \})
-
-"" Use tern_for_vim.
-"" Use the popup menu by default; only insert the longest common text of the completion matches; don't automatically show extra information in the preview window.
-"set completeopt=menu,longest
-"" set completeopt=longest,menuone,preview
-"let g:deoplete#sources = {}
-"let g:deoplete#sources.javascript = ['file', 'ultisnips', 'ternjs']
-"let g:deoplete#sources.jsx = ['file', 'ultisnips', 'ternjs']
-"let g:deoplete#sources.vue = ['file', 'ultisnips', 'ternjs']
-"let g:deoplete#sources.svelte = ['file', 'ultisnips', 'ternjs']
-"let g:tern#command = ["tern"]
-"let g:tern#arguments = ["--persistent", "--no-port-file"]
-"
-"" Whether to use a case-insensitive compare between the current word and 
-"" potential completions. Default 0
-"let g:deoplete#sources#ternjs#case_insensitive = 1
-
-" Config SuperTab plugin everything
-" autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-" close the preview window when you're not using it
-" let g:SuperTabClosePreviewOnPopupClose = 1
-" change UltiSnipsExpandTrigger
-" let g:UltiSnipsExpandTrigger="<C-k>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " ## UltiSnips without deoplete
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
