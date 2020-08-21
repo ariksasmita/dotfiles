@@ -16,15 +16,16 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 " Match HTML Tag anywhere in file
 Plug 'valloric/MatchTagAlways'
+" Fuzzy file finder
 Plug 'ctrlpvim/ctrlp.vim'
 " Editor Config file support
 Plug 'editorconfig/editorconfig-vim'
 " Extended session management for Vim (:mksession on steroids) 
 Plug 'xolox/vim-session'
-" Misc. cim scripts (required for vim-session)
+" Misc. vim scripts (required for vim-session)
 Plug 'xolox/vim-misc'
 " Another alternative tht uses Silver Searcher
-Plug 'mhinz/vim-grepper'
+" Plug 'mhinz/vim-grepper'
 " ACK Vim
 Plug 'mileszs/ack.vim'
 " Change to project's directory on file open
@@ -64,10 +65,10 @@ Plug 'prettier/vim-prettier', {
     \ 'swift' ] }
 "
 " # TypeScript syntax support
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 
 " # PHP Blade Template Engine Syntax Support
-Plug 'jwalton512/vim-blade'
+" Plug 'jwalton512/vim-blade'
 
 " # Better Markdown Hihglight
 Plug 'gabrielelana/vim-markdown'
@@ -82,26 +83,26 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 " Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'epilande/vim-react-snippets'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'epilande/vim-react-snippets'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Emmet
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 " " # GIT SUPPORTS
 " Vim Fugitive
 Plug 'tpope/vim-fugitive'
 " Vim Fugitive helper for commits and conflict resolver
-Plug 'idanarye/vim-merginal'
+" Plug 'idanarye/vim-merginal'
 " Vim GitGutter
 Plug 'airblade/vim-gitgutter'
 " Enable Fullscreen
-Plug 'lambdalisue/vim-fullscreen'
+" Plug 'lambdalisue/vim-fullscreen'
 
 " # PLANT UML PREVIEW
 Plug 'scrooloose/vim-slumlord'
@@ -186,9 +187,9 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/node_
 
 " ## UltiSnips without deoplete
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " ## IndentLine
 " It's pretty useful, but impacts performance quite drastically. Disable it by
@@ -280,8 +281,9 @@ let g:buftabline_numbers=1
 set diffopt+=vertical
 
 " TERN JS AUTOCOMPLETION AUTOSTART
-let g:tern#command = ['tern']
-let g:tern#arguments = ["--no-port-file --persistent"]
+" let g:tern#command = ['tern']
+" let g:tern#arguments = ["--no-port-file --persistent"]
+" set omnifunc=syntaxcomplete#Complete
 
 " EMMET
 " Remap key
