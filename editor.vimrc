@@ -1,6 +1,6 @@
 " ## Windows Behavior Binding
 " Adds behavior for Windows OS
-source $VIMRUNTIME/mswin.vim
+" source $VIMRUNTIME/mswin.vim
 
 " ## Declare terminal has 256 colors
 " set t_Co=256
@@ -27,13 +27,7 @@ filetype plugin on
 " au BufNewFile,BufRead *.axml set filetype=xml
 " au BufNewFile,BufRead *.acss set filetype=css
 
-" colorscheme PaperColor
-" colorscheme night-owl
-" colorscheme tequila-sunrise
-" colorscheme onehalfdark
 if (has("termguicolors"))
- " let ayucolor="dark"
- " colorscheme ayu
  colorscheme panic
 endif
 
