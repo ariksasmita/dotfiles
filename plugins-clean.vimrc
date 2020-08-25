@@ -12,6 +12,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'ap/vim-buftabline'
 " Get simple Git branch name to use in statusline
 Plug 'itchyny/vim-gitbranch'
+" Auto pair brackets
+Plug 'jiangmiao/auto-pairs'
 " Editor Config file support
 Plug 'editorconfig/editorconfig-vim'
 " Extended session management for Vim (:mksession on steroids) 

@@ -35,6 +35,9 @@ noremap k gk
 nnoremap n nzz
 nnoremap N Nzz
 
+" Swith to last buffer
+nnoremap tt <C-^>
+
 " Cycle through open buffers
 nnoremap <Tab> :bnext!<CR>
 nnoremap <S-Tab> :bprev!<CR>
