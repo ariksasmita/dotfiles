@@ -46,6 +46,8 @@ nnoremap <S-Tab> :bprev!<CR>
 " :autocmd FileType nerdtree noremap <buffer> <Tab> <nop>
 " :autocmd FileType nerdtree noremap <buffer> <S-Tab> <nop>
 
+" Close & Save file
+nnoremap <Leader>q :q<CR>
 
 " EXTREME: Arrow keys to resize panel,
 " AND also disable arrow keys in Insert mode
@@ -93,6 +95,9 @@ nnoremap <Leader>s :NERDTreeFind<cr>
 " Toggle Merginal Panel
 nnoremap <Leader>m :MerginalToggle<CR>
 
+" ## NETRW
+" Add your own mapping. For example:
+noremap <Leader>f :Vexplore<CR>
 
 " ## SNIPPETS
 "You can use <c-j> to goto the next <++> - it is pretty smart.

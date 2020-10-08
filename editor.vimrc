@@ -46,7 +46,7 @@ set nowritebackup
 set nobackup
 set noswapfile
 set number
-set relativenumber
+" set relativenumber
 set mouse=a
 set hidden
 set list
@@ -66,7 +66,7 @@ set undodir=~/.vim/undodir
 set undofile
 
 " Use system's clipboard
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " Don't let Vim hide characters or make loud dings
 set conceallevel=1
@@ -94,3 +94,14 @@ set splitright
 " set foldnestmax=10
 " set nofoldenable
 " set foldlevel=2
+
+" Netrw
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END

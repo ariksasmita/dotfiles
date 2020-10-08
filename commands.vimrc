@@ -8,6 +8,7 @@ cabbrev sscss Ack! --css
 cabbrev sweb Ack! --web
 cabbrev sphp Ack! --php
 cabbrev svjs Ack! --js --vue
+cabbrev ack Ack!
 
 " GIT fugitive
 cabbrev gps Git push

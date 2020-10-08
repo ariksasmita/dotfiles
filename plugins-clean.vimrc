@@ -17,7 +17,7 @@ Plug 'jiangmiao/auto-pairs'
 " Editor Config file support
 Plug 'editorconfig/editorconfig-vim'
 " Extended session management for Vim (:mksession on steroids) 
-Plug 'xolox/vim-session'
+" Plug 'xolox/vim-session'
 " Misc. cim scripts (required for vim-session)
 Plug 'xolox/vim-misc'
 " ACK Vim
@@ -32,6 +32,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'mattn/emmet-vim'
 " ctrlp Fuzzy File Finder
 Plug 'ctrlpvim/ctrlp.vim'
+" Dev Icons
+" Plug 'ryanoasis/vim-devicons'
 
 " ### CODE COMPLETION
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -47,7 +49,7 @@ Plug 'dense-analysis/ale'
 " Vim Fugitive
 Plug 'tpope/vim-fugitive'
 " Vim Fugitive helper for commits and conflict resolver
-Plug 'idanarye/vim-merginal'
+" Plug 'idanarye/vim-merginal'
 " Vim GitGutter
 Plug 'airblade/vim-gitgutter'
 
@@ -206,3 +208,10 @@ set diffopt+=vertical
 " ## EMMET
 " Remap key
 let g:user_emmet_leader_key='<C-B>'
+
+
+
+" ## DEVICONS
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:WebDevIconsOS = 'Darwin'

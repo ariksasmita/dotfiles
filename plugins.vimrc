@@ -15,16 +15,16 @@ Plug 'itchyny/vim-gitbranch'
 " Auto pair brackets
 Plug 'jiangmiao/auto-pairs'
 " Match HTML Tag anywhere in file
-Plug 'valloric/MatchTagAlways'
+" Plug 'valloric/MatchTagAlways'
 Plug 'ctrlpvim/ctrlp.vim'
 " Editor Config file support
 Plug 'editorconfig/editorconfig-vim'
 " Extended session management for Vim (:mksession on steroids) 
-Plug 'xolox/vim-session'
+" Plug 'xolox/vim-session'
 " Misc. cim scripts (required for vim-session)
 Plug 'xolox/vim-misc'
 " Another alternative tht uses Silver Searcher
-Plug 'mhinz/vim-grepper'
+" Plug 'mhinz/vim-grepper'
 " ACK Vim
 Plug 'mileszs/ack.vim'
 " Change to project's directory on file open
@@ -43,25 +43,25 @@ Plug 'posva/vim-vue'
 Plug 'leafoftree/vim-svelte-plugin'
 
 " Prettier
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'branch': 'release/1.x',
-  \ 'for': [
-    \ 'javascript',
-    \ 'typescript',
-    \ 'css',
-    \ 'less',
-    \ 'scss',
-    \ 'json',
-    \ 'graphql',
-    \ 'markdown',
-    \ 'vue',
-    \ 'lua',
-    \ 'php',
-    \ 'python',
-    \ 'ruby',
-    \ 'html',
-    \ 'swift' ] }
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'yarn install',
+"   \ 'branch': 'release/1.x',
+"   \ 'for': [
+"     \ 'javascript',
+"     \ 'typescript',
+"     \ 'css',
+"     \ 'less',
+"     \ 'scss',
+"     \ 'json',
+"     \ 'graphql',
+"     \ 'markdown',
+"     \ 'vue',
+"     \ 'lua',
+"     \ 'php',
+"     \ 'python',
+"     \ 'ruby',
+"     \ 'html',
+"     \ 'swift' ] }
 "
 " # TypeScript syntax support
 Plug 'leafgarland/typescript-vim'
