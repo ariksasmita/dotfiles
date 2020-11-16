@@ -16,6 +16,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 " Match HTML Tag anywhere in file
 " Plug 'valloric/MatchTagAlways'
+" Fuzzy file finder
 Plug 'ctrlpvim/ctrlp.vim'
 " Editor Config file support
 Plug 'editorconfig/editorconfig-vim'
