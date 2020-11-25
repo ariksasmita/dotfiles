@@ -41,7 +41,7 @@ set nowritebackup
 set nobackup
 set noswapfile
 set number
-" set relativenumber
+set relativenumber
 set mouse=a
 set hidden
 set list
@@ -59,7 +59,7 @@ set undodir=~/.vim/undodir
 set undofile
 
 " Use system's clipboard
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " Don't let Vim hide characters or make loud dings
 set conceallevel=1

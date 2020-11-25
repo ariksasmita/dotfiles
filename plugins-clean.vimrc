@@ -40,7 +40,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " ### LANGUAGE SUPPORT
 " Universal Lang Support
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
+" * Vue
+Plug 'posva/vim-vue'
+" * JS
+Plug 'pangloss/vim-javascript'
 
 " ### LINTING
 Plug 'dense-analysis/ale'

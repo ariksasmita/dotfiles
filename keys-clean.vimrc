@@ -9,6 +9,10 @@ imap <S-CR> <Esc>
 imap ;; <Esc>
 noremap ;; <Esc>
 
+" Copy to system clipboard
+vnoremap <Leader>y "*y
+nnoremap <Leader>y "*y
+
 " Switch between split
 noremap <Leader>w <c-w><c-w>
 
@@ -69,6 +73,7 @@ vnoremap <Leader>c "ec/*<CR>*/<Esc>k"ep
 nnoremap <Leader>/ <S-i>//<Space><Esc>
 "  Comment HTML/Template
 nnoremap <Leader>hc ^"eC<!-- <Esc>"epa --><Esc>
+vnoremap <Leader>hc c<!--<CR>--><Esc>P
 " Resync syntax highlights
 nnoremap <Leader>r :syntax sync fromstart<CR>
 
