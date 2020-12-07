@@ -53,7 +53,7 @@ Plug 'dense-analysis/ale'
 " Vim Fugitive
 Plug 'tpope/vim-fugitive'
 " Vim Fugitive helper for commits and conflict resolver
-" Plug 'idanarye/vim-merginal'
+Plug 'idanarye/vim-merginal'
 " Vim GitGutter
 Plug 'airblade/vim-gitgutter'
 
