@@ -65,6 +65,8 @@ nnoremap <Leader>/ <S-i>//<Space><Esc>
 nnoremap <Leader>hc ^"eC<!-- <Esc>"epa --><Esc>
 " Resync syntax highlights
 nnoremap <Leader>r :syntax sync fromstart<CR>
+" Remove search highlights
+nnoremap <Leader>h :nohlsearch<CR>
 
 " ## NETRW
 " Add your own mapping. For example:

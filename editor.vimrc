@@ -82,8 +82,9 @@ set splitbelow
 set splitright
 
 " Setup folding
-set foldmethod=syntax
-set foldmethod=indent
+" set foldmethod=syntax
+" set foldmethod=indent
+" set foldmethod=manual
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
@@ -98,3 +99,8 @@ let g:netrw_winsize = 25
 "   autocmd!
 "   autocmd VimEnter * :Vexplore
 " augroup END
+
+" Highlithing for large files
+" ref: https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim#highlighting-for-large-files
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear

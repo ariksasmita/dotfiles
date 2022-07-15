@@ -71,3 +71,10 @@ autocmd BufRead,BufNewFile *.vue inorea <buffer> vue <c-r>=IMAP_PutTextWithMovem
 
 "Press c-q insted of space (or other key) to complete the snippet
 imap <C-q> <C-]>
+
+" ## INDENTLine
+let g:indentLine_enabled = 0
+let g:indentLine_char = '⎸'
+
+" VIM Rooter Silent Mode
+let g:rooter_silent_chdir = 1

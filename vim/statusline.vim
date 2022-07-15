@@ -16,6 +16,8 @@ set statusline+=\
 set statusline+=%{gitbranch#name()}
 set statusline+=\ 
 set statusline+=%#LineNr#
+set statusline+=%#NormalColor#%{''}
+set statusline+=\|
 set statusline+=\ %f
 set statusline+=%m\
 set statusline+=%=

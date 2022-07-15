@@ -1,9 +1,7 @@
 " Set background scheme
 set background=dark
-if (has("termguicolors"))
- set termguicolors
- colorscheme panic
-endif
+set termguicolors
+colorscheme panic
 
 set guifont=Fira\ Code:h10
 

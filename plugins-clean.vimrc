@@ -17,7 +17,7 @@ Plug 'jiangmiao/auto-pairs'
 " Editor Config file support
 Plug 'editorconfig/editorconfig-vim'
 " Extended session management for Vim (:mksession on steroids) 
-" Plug 'xolox/vim-session'
+Plug 'xolox/vim-session'
 " Misc. cim scripts (required for vim-session)
 Plug 'xolox/vim-misc'
 " ACK Vim
@@ -33,7 +33,7 @@ Plug 'mattn/emmet-vim'
 " ctrlp Fuzzy File Finder
 Plug 'ctrlpvim/ctrlp.vim'
 " Dev Icons
-" Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 
 " ### CODE COMPLETION
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -42,12 +42,22 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Universal Lang Support
 " Plug 'sheerun/vim-polyglot'
 " * Vue
-Plug 'posva/vim-vue'
+" Plug 'posva/vim-vue'
+Plug 'leafOfTree/vim-vue-plugin'
+" * React
+Plug 'MaxMEllon/vim-jsx-pretty'
+" * React Typescript
+Plug 'peitalin/vim-jsx-typescript'
+" * React Styled Component
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " * JS
 Plug 'pangloss/vim-javascript'
 
 " ### LINTING
 Plug 'dense-analysis/ale'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " ### GIT SUPPORTS
 " Vim Fugitive
@@ -151,6 +161,7 @@ let g:ale_fixers = {
 \   'vue': ['prettier', 'eslint'],
 \   'svelte': ['prettier', 'eslint'],
 \   'scss':['prettier', 'stylelint'],
+\   'html':['prettier', 'html-beautify'],
 \}
 " ALE function for statusline
 function! LinterStatus() abort
@@ -219,3 +230,27 @@ let g:user_emmet_leader_key='<C-B>'
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:WebDevIconsOS = 'Darwin'
+
+
+
+" ## MERGINAL
+let g:merginal_splitType = ''
+let g:merginal_remoteVisible = 0
+
+" ## VUE
+" let g:vim_vue_plugin_load_full_syntax = 1
+" let g:vim_vue_plugin_use_less = 1
+" let g:vim_vue_plugin_highlight_vue_attr = 1
+let g:vim_vue_plugin_config = { 
+      \'syntax': {
+      \   'template': ['html'],
+      \   'script': ['javascript', 'typescript'],
+      \   'style': ['css', 'scss', 'less'],
+      \},
+      \'full_syntax': [],
+      \'initial_indent': [],
+      \'attribute': 1,
+      \'keyword': 0,
+      \'foldexpr': 0,
+      \'debug': 0,
+      \}
