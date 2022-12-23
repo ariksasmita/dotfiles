@@ -110,3 +110,6 @@ autocmd BufRead,BufNewFile *.vue inorea <buffer> vue <c-r>=IMAP_PutTextWithMovem
 
 "Press c-q insted of space (or other key) to complete the snippet
 imap <C-q> <C-]>
+
+" Exit from terminal
+tnoremap <Esc> <C-\><C-n>

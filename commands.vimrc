@@ -21,3 +21,6 @@ cabbrev afx ALEFix
 " Session Manager
 cabbrev ops OpenSession!
 cabbrev svs SaveSession
+
+" NERDTree
+cabbrev ntf NERDTreeFind

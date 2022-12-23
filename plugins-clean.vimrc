@@ -66,6 +66,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
 " Vim GitGutter
 Plug 'airblade/vim-gitgutter'
+" PlantUML Syntax
+Plug 'aklt/plantuml-syntax'
 
 " ### THEME
 " Panic!
@@ -254,3 +256,6 @@ let g:vim_vue_plugin_config = {
       \'foldexpr': 0,
       \'debug': 0,
       \}
+
+" ## AUTOPAIRS
+let g:AutoPairsShortcutToggle = '<M-t>'
