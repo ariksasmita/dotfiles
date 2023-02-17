@@ -68,6 +68,8 @@ Plug 'idanarye/vim-merginal'
 Plug 'airblade/vim-gitgutter'
 " PlantUML Syntax
 Plug 'aklt/plantuml-syntax'
+" Open In Browser to support PlantUML
+Plug 'tyru/open-browser.vim'
 
 " ### THEME
 " Panic!

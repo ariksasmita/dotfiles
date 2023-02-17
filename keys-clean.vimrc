@@ -93,7 +93,7 @@ nnoremap <Leader>n :nohlsearch<cr>
 " Close all but current buffer
 nnoremap <Leader>cx :%bd\|e#<CR>
 " Find current buffer in NERDTree
-nnoremap <Leader>s :NERDTreeFind<cr>
+nnoremap <Leader>k :NERDTreeFind<cr>
 
 
 " ## MERGINAL
